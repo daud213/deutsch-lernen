@@ -37,7 +37,8 @@ redirect(`/learn/${(due as any).vocabulary_id}`);
     .select('vocabulary_id')
     .eq('user_id', user.id);
 
-  const seenIds = seen?.map((r) => r.vocabulary_id) ?? [];
+  // Replace line 40 with this:
+const seenIds = (seen as any[])?.map((r) => r.vocabulary_id) ?? [];
 
   const query = supabase.from('vocabulary').select('id').limit(1);
   if (seenIds.length > 0) {
