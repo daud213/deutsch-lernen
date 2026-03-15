@@ -59,7 +59,7 @@ export async function updateUserProgress(
   const nextReview = calculateNextReviewDate(now, difficulty);
 
   // 4. Upsert the progress row
-  const { error: upsertError } = await supabase.from('user_progress').upsert(
+const { error: upsertError } = await (supabase.from('user_progress') as any).upsert( 
     {
       user_id: user.id,
       vocabulary_id: vocabularyId,
