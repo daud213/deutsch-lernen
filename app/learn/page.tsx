@@ -27,7 +27,8 @@ export default async function LearnIndexPage() {
     .single();
 
   if (due) {
-    redirect(`/learn/${due.vocabulary_id}`);
+    // Replace line 30 with this:
+redirect(`/learn/${(due as any).vocabulary_id}`);
   }
 
   // No cards due — pick a word the user hasn't seen yet, or fall back to word 1
