@@ -43,10 +43,10 @@ export async function updateUserProgress(
   // 3. Calculate new streak
   let newStreak = 1;
   if (existing) {
-    const lastReviewed = new Date(existing.last_reviewed);
+   const lastReviewed = new Date((existing as any).last_reviewed);
     if (isToday(lastReviewed, now)) {
       // Already reviewed today — keep current streak, don't double-award XP
-      newStreak = existing.streak;
+     newStreak = (existing as any).streak;
     } else if (isYesterday(lastReviewed, now)) {
       // Reviewed yesterday — extend streak
       newStreak = existing.streak + 1;
