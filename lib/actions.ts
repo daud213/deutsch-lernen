@@ -105,6 +105,6 @@ const { error: upsertError } = await (supabase.from('user_progress') as any).ups
   return {
     success: true,
     streak: newStreak,
-    xp: profile?.xp ?? 0,
+  xp: (profile as any)?.xp ?? 0,
   };
 }
