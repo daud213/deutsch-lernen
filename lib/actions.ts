@@ -66,7 +66,7 @@ const { error: upsertError } = await (supabase.from('user_progress') as any).ups
       streak: newStreak,
       last_reviewed: now.toISOString(),
       next_review: nextReview.toISOString(),
-      total_reviews: existing ? existing.total_reviews + 1 : 1,
+      total_reviews: existing ? (existing as any).total_reviews + 1 : 1,
       difficulty,
     },
     { onConflict: 'user_id,vocabulary_id' }
