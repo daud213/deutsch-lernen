@@ -46,5 +46,5 @@ const seenIds = (seen as any[])?.map((r) => r.vocabulary_id) ?? [];
   }
   const { data: unseen } = await query.single();
 
-  redirect(`/learn/${unseen?.id ?? 1}`);
-}
+  // Replace line 49 with this:
+redirect(`/learn/${(unseen as any)?.id ?? 1}`);
