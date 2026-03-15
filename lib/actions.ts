@@ -49,7 +49,7 @@ export async function updateUserProgress(
      newStreak = (existing as any).streak;
     } else if (isYesterday(lastReviewed, now)) {
       // Reviewed yesterday — extend streak
-      newStreak = existing.streak + 1;
+      newStreak = (existing as any).streak + 1;
     } else {
       // Gap of >1 day — reset streak
       newStreak = 1;
