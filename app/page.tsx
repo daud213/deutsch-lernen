@@ -35,8 +35,8 @@ export default async function HomePage() {
     .eq('user_id', user.id)
     .lte('next_review', new Date().toISOString());
 
-  const xp = profile?.xp ?? 0;
-  const streak = progressRows?.[0]?.streak ?? 0;
+  const xp = (profile as any)?.xp ?? 0;
+ const streak = (progressRows as any)?.[0]?.streak ?? 0;
   const reviewsDueCount = reviewsDue ?? 0;
 
   // Fetch vocabulary list for browsing
