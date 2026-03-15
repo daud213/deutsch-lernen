@@ -51,7 +51,7 @@ export default async function HomePage() {
 
       <h2 className="text-base font-semibold text-gray-600 mb-3">All Words</h2>
       <ul className="flex flex-col gap-2">
-        {vocabulary?.map((word) => (
+{(vocabulary as any[])?.map((word: any) => (
           <li key={word.id}>
             <Link
               href={`/learn/${word.id}`}
