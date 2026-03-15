@@ -82,7 +82,7 @@ const { error: upsertError } = await (supabase.from('user_progress') as any).ups
     existing && isToday(new Date((existing as any).last_reviewed), now);
 
   if (!alreadyReviewedToday) {
-    const { error: xpError } = await supabase.rpc('increment_user_xp', {
+    const { error: xpError } = await (supabase as any).rpc('increment_user_xp', {
       p_user_id: user.id,
       p_amount: XP_PER_REVIEW,
     });
