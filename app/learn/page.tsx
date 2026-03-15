@@ -27,7 +27,7 @@ export default async function LearnIndexPage() {
     .single();
 
   if (due) {
-    // Replace line 30 with this:
+   
 redirect(`/learn/${(due as any).vocabulary_id}`);
   }
 
@@ -37,7 +37,7 @@ redirect(`/learn/${(due as any).vocabulary_id}`);
     .select('vocabulary_id')
     .eq('user_id', user.id);
 
-  // Replace line 40 with this:
+
 const seenIds = (seen as any[])?.map((r) => r.vocabulary_id) ?? [];
 
   const query = supabase.from('vocabulary').select('id').limit(1);
@@ -46,5 +46,5 @@ const seenIds = (seen as any[])?.map((r) => r.vocabulary_id) ?? [];
   }
   const { data: unseen } = await query.single();
 
-  // Replace line 49 with this:
-redirect(`/learn/${(unseen as any)?.id ?? 1}`);
+  redirect(`/learn/${(unseen as any)?.id ?? 1}`);
+}
