@@ -79,7 +79,7 @@ const { error: upsertError } = await (supabase.from('user_progress') as any).ups
 
   // 5. Award XP — only once per unique review session (not on same-day re-reviews)
   const alreadyReviewedToday =
-    existing && isToday(new Date(existing.last_reviewed), now);
+    existing && isToday(new Date((existing as any).last_reviewed), now);
 
   if (!alreadyReviewedToday) {
     const { error: xpError } = await supabase.rpc('increment_user_xp', {
