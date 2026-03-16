@@ -7,7 +7,7 @@ import { createClient } from '@/lib/db';
  * or to a random vocabulary word if none are due.
  */
 export default async function LearnIndexPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const {
     data: { user },

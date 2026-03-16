@@ -8,7 +8,7 @@ type PageProps = {
 };
 
 export default async function LearnPage({ params }: PageProps) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Auth guard
   const {

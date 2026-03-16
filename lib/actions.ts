@@ -18,7 +18,7 @@ export async function updateUserProgress(
   vocabularyId: number,
   difficulty: number
 ): Promise<ActionResult> {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // 1. Verify the user is authenticated
   const {
